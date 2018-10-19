@@ -5,11 +5,13 @@
 
 from OpenGL.GL import *
 import PIL.Image
+from PIL import ImageFile
+ImageFile.LOAD_TRUNCATED_IMAGES = True
 
 def rocky_robot_body_frame():
 
     materials = {}
-    
+
     image = PIL.Image.open('images/rocky_robot_chest.jpg')
     image = image.tobytes('raw', 'RGBX', 0, -1)
     texture_id = glGenTextures(1)
@@ -18,7 +20,7 @@ def rocky_robot_body_frame():
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR)
     glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, 500, 500, 0, GL_RGBA, GL_UNSIGNED_BYTE, image)
     materials['Material_001'] = texture_id
-    
+
     gl_list = glGenLists(1)
     glNewList(gl_list, GL_COMPILE)
     glFrontFace(GL_CCW)
@@ -383,9 +385,9 @@ def rocky_robot_body_frame():
 def rocky_robot_head_passive_frames(is_animated):
 
     frames = []
-    
+
     materials = {}
-    
+
     image = PIL.Image.open('images/rocky_robot_head_passive_01.png')
     image = image.tobytes('raw', 'RGBX', 0, -1)
     texture_id = glGenTextures(1)
@@ -498,9 +500,9 @@ def rocky_robot_head_passive_frames(is_animated):
     glVertex3fv([0.39, 0.393, -1.012])
     glEnd()
     glEndList()
-    
+
     frames.append(gl_list)
-    
+
     if not is_animated: return frames
 
     frames.append(gl_list)
@@ -607,7 +609,7 @@ def rocky_robot_head_passive_frames(is_animated):
     glVertex3fv([0.39, 0.393, -1.012])
     glEnd()
     glEndList()
-    
+
     frames.append(gl_list)
     frames.append(gl_list)
 
@@ -616,9 +618,9 @@ def rocky_robot_head_passive_frames(is_animated):
 def rocky_robot_head_speaking_frames(is_animated):
 
     frames = []
-    
+
     materials = {}
-    
+
     image = PIL.Image.open('images/rocky_robot_head_speaking_01.png')
     image = image.tobytes('raw', 'RGBX', 0, -1)
     texture_id = glGenTextures(1)
@@ -731,7 +733,7 @@ def rocky_robot_head_speaking_frames(is_animated):
     glVertex3fv([0.39, 0.393, -1.012])
     glEnd()
     glEndList()
-    
+
     frames.append(gl_list)
 
     if not is_animated: return frames
@@ -835,21 +837,21 @@ def rocky_robot_head_speaking_frames(is_animated):
     glVertex3fv([0.39, 0.393, -1.012])
     glEnd()
     glEndList()
-    
+
     frames.append(gl_list)
     frames.append(gl_list)
     frames.append(gl_list)
     frames.append(gl_list)
     frames.append(gl_list)
-       
+
     return frames
 
 def rocky_robot_head_happy_frames(is_animated):
 
     frames = []
-    
+
     materials = {}
-    
+
     image = PIL.Image.open('images/rocky_robot_head_happy_01.png')
     image = image.tobytes('raw', 'RGBX', 0, -1)
     texture_id = glGenTextures(1)
@@ -962,7 +964,7 @@ def rocky_robot_head_happy_frames(is_animated):
     glVertex3fv([0.39, 0.393, -1.012])
     glEnd()
     glEndList()
-    
+
     frames.append(gl_list)
 
     if not is_animated: return frames
@@ -1061,7 +1063,7 @@ def rocky_robot_head_happy_frames(is_animated):
     glVertex3fv([0.39, 0.393, -1.029701])
     glEnd()
     glEndList()
-    
+
     frames.append(gl_list)
 
     gl_list = glGenLists(1)
@@ -1158,7 +1160,7 @@ def rocky_robot_head_happy_frames(is_animated):
     glVertex3fv([0.39, 0.393, -1.076])
     glEnd()
     glEndList()
-    
+
     frames.append(gl_list)
 
     glNewList(gl_list, GL_COMPILE)
@@ -1254,7 +1256,7 @@ def rocky_robot_head_happy_frames(is_animated):
     glVertex3fv([0.39, 0.393, -1.1223])
     glEnd()
     glEndList()
-    
+
     frames.append(gl_list)
 
     gl_list = glGenLists(1)
@@ -1351,7 +1353,7 @@ def rocky_robot_head_happy_frames(is_animated):
     glVertex3fv([0.39, 0.393, -1.14])
     glEnd()
     glEndList()
-    
+
     frames.append(gl_list)
 
     gl_list = glGenLists(1)
@@ -1448,7 +1450,7 @@ def rocky_robot_head_happy_frames(is_animated):
     glVertex3fv([0.39, 0.393, -1.128622])
     glEnd()
     glEndList()
-    
+
     frames.append(gl_list)
 
     gl_list = glGenLists(1)
@@ -1545,7 +1547,7 @@ def rocky_robot_head_happy_frames(is_animated):
     glVertex3fv([0.39, 0.393, -1.096575])
     glEnd()
     glEndList()
-    
+
     frames.append(gl_list)
 
     gl_list = glGenLists(1)
@@ -1642,7 +1644,7 @@ def rocky_robot_head_happy_frames(is_animated):
     glVertex3fv([0.39, 0.393, -1.055426])
     glEnd()
     glEndList()
-    
+
     frames.append(gl_list)
 
     gl_list = glGenLists(1)
@@ -1739,7 +1741,7 @@ def rocky_robot_head_happy_frames(is_animated):
     glVertex3fv([0.39, 0.393, -1.023378])
     glEnd()
     glEndList()
-    
+
     frames.append(gl_list)
 
     gl_list = glGenLists(1)
@@ -1836,15 +1838,15 @@ def rocky_robot_head_happy_frames(is_animated):
     glVertex3fv([0.39, 0.393, -1.012])
     glEnd()
     glEndList()
-    
+
     frames.append(gl_list)
-    
+
     return frames
 
 def rocky_robot_head_sad_frames(is_animated):
 
     frames = []
-    
+
     materials = {}
 
     image = PIL.Image.open('images/rocky_robot_head_sad_01.png')
@@ -1959,11 +1961,11 @@ def rocky_robot_head_sad_frames(is_animated):
     glVertex3fv([0.39, 0.393, -1.012])
     glEnd()
     glEndList()
-    
+
     frames.append(gl_list)
- 
+
     if not is_animated: return frames
-   
+
     gl_list = glGenLists(1)
     glNewList(gl_list, GL_COMPILE)
     glFrontFace(GL_CCW)
@@ -2058,7 +2060,7 @@ def rocky_robot_head_sad_frames(is_animated):
     glVertex3fv([0.39, 0.389184, -1.015836])
     glEnd()
     glEndList()
-    
+
     frames.append(gl_list)
 
     gl_list = glGenLists(1)
@@ -2155,7 +2157,7 @@ def rocky_robot_head_sad_frames(is_animated):
     glVertex3fv([0.39, 0.379653, -1.026292])
     glEnd()
     glEndList()
-    
+
     frames.append(gl_list)
 
     gl_list = glGenLists(1)
@@ -2252,7 +2254,7 @@ def rocky_robot_head_sad_frames(is_animated):
     glVertex3fv([0.39, 0.370799, -1.03733])
     glEnd()
     glEndList()
-    
+
     frames.append(gl_list)
 
     gl_list = glGenLists(1)
@@ -2349,7 +2351,7 @@ def rocky_robot_head_sad_frames(is_animated):
     glVertex3fv([0.39, 0.367601, -1.041694])
     glEnd()
     glEndList()
-    
+
     frames.append(gl_list)
 
     gl_list = glGenLists(1)
@@ -2446,7 +2448,7 @@ def rocky_robot_head_sad_frames(is_animated):
     glVertex3fv([0.39, 0.370799, -1.03733])
     glEnd()
     glEndList()
-    
+
     frames.append(gl_list)
 
     gl_list = glGenLists(1)
@@ -2543,7 +2545,7 @@ def rocky_robot_head_sad_frames(is_animated):
     glVertex3fv([0.39, 0.379653, -1.026292])
     glEnd()
     glEndList()
-    
+
     frames.append(gl_list)
 
     gl_list = glGenLists(1)
@@ -2640,7 +2642,7 @@ def rocky_robot_head_sad_frames(is_animated):
     glVertex3fv([0.39, 0.389184, -1.015836])
     glEnd()
     glEndList()
-    
+
     frames.append(gl_list)
 
     gl_list = glGenLists(1)
@@ -2737,7 +2739,7 @@ def rocky_robot_head_sad_frames(is_animated):
     glVertex3fv([0.39, 0.393, -1.012])
     glEnd()
     glEndList()
-    
+
     frames.append(gl_list)
 
     gl_list = glGenLists(1)
@@ -2834,15 +2836,15 @@ def rocky_robot_head_sad_frames(is_animated):
     glVertex3fv([0.39, 0.393, -1.012])
     glEnd()
     glEndList()
-    
+
     frames.append(gl_list)
-    
+
     return frames
 
 def rocky_robot_head_angry_frames(is_animated):
 
     frames = []
-    
+
     materials = {}
 
     image = PIL.Image.open('images/rocky_robot_head_angry.png')
@@ -2853,7 +2855,7 @@ def rocky_robot_head_angry_frames(is_animated):
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR)
     glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, 500, 500, 0, GL_RGBA, GL_UNSIGNED_BYTE, image)
     materials['Material_001'] = texture_id
-    
+
     gl_list = glGenLists(1)
     glNewList(gl_list, GL_COMPILE)
     glFrontFace(GL_CCW)
@@ -2948,7 +2950,7 @@ def rocky_robot_head_angry_frames(is_animated):
     glVertex3fv([0.39, 0.393, -1.012])
     glEnd()
     glEndList()
-    
+
     frames.append(gl_list)
 
     if not is_animated: return frames
@@ -3047,7 +3049,7 @@ def rocky_robot_head_angry_frames(is_animated):
     glVertex3fv([0.470943, 0.340241, -1.012])
     glEnd()
     glEndList()
-    
+
     frames.append(gl_list)
 
     gl_list = glGenLists(1)
@@ -3144,9 +3146,9 @@ def rocky_robot_head_angry_frames(is_animated):
     glVertex3fv([0.707, 0.39, -1.012])
     glEnd()
     glEndList()
-    
+
     frames.append(gl_list)
-    
+
     gl_list = glGenLists(1)
     glNewList(gl_list, GL_COMPILE)
     glFrontFace(GL_CCW)
@@ -3241,7 +3243,7 @@ def rocky_robot_head_angry_frames(is_animated):
     glVertex3fv([0.761218, 0.625073, -1.012])
     glEnd()
     glEndList()
-    
+
     frames.append(gl_list)
 
     gl_list = glGenLists(1)
@@ -3338,7 +3340,7 @@ def rocky_robot_head_angry_frames(is_animated):
     glVertex3fv([0.71, 0.707, -1.012])
     glEnd()
     glEndList()
-    
+
     frames.append(gl_list)
 
     gl_list = glGenLists(1)
@@ -3435,7 +3437,7 @@ def rocky_robot_head_angry_frames(is_animated):
     glVertex3fv([0.747077, 0.656816, -1.012])
     glEnd()
     glEndList()
-    
+
     frames.append(gl_list)
 
     gl_list = glGenLists(1)
@@ -3532,9 +3534,9 @@ def rocky_robot_head_angry_frames(is_animated):
     glVertex3fv([0.76481, 0.485924, -1.012])
     glEnd()
     glEndList()
-    
+
     frames.append(gl_list)
-    
+
     gl_list = glGenLists(1)
     glNewList(gl_list, GL_COMPILE)
     glFrontFace(GL_CCW)
@@ -3629,7 +3631,7 @@ def rocky_robot_head_angry_frames(is_animated):
     glVertex3fv([0.609999, 0.334016, -1.012])
     glEnd()
     glEndList()
-    
+
     frames.append(gl_list)
 
     gl_list = glGenLists(1)
@@ -3726,7 +3728,7 @@ def rocky_robot_head_angry_frames(is_animated):
     glVertex3fv([0.439473, 0.35498, -1.012])
     glEnd()
     glEndList()
-    
+
     frames.append(gl_list)
 
     gl_list = glGenLists(1)
@@ -3823,15 +3825,15 @@ def rocky_robot_head_angry_frames(is_animated):
     glVertex3fv([0.39, 0.393, -1.012])
     glEnd()
     glEndList()
-    
+
     frames.append(gl_list)
-    
+
     return frames
 
 def rocky_robot_degrees_90_frame():
 
     materials = {}
-    
+
     image = PIL.Image.open('images/rocky_robot_head_passive_01.png')
     image = image.tobytes('raw', 'RGBX', 0, -1)
     texture_id = glGenTextures(1)
@@ -3840,7 +3842,7 @@ def rocky_robot_degrees_90_frame():
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR)
     glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, 500, 500, 0, GL_RGBA, GL_UNSIGNED_BYTE, image)
     materials['Material_001'] = texture_id
-    
+
     image = PIL.Image.open('images/rocky_robot_chest.jpg')
     image = image.tobytes('raw', 'RGBX', 0, -1)
     texture_id = glGenTextures(1)
@@ -4306,7 +4308,7 @@ def rocky_robot_degrees_90_frame():
 def rocky_robot_degrees_180_frame():
 
     materials = {}
-    
+
     image = PIL.Image.open('images/rocky_robot_head_passive_01.png')
     image = image.tobytes('raw', 'RGBX', 0, -1)
     texture_id = glGenTextures(1)
@@ -4315,7 +4317,7 @@ def rocky_robot_degrees_180_frame():
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR)
     glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, 500, 500, 0, GL_RGBA, GL_UNSIGNED_BYTE, image)
     materials['Material_001'] = texture_id
-    
+
     image = PIL.Image.open('images/rocky_robot_chest.jpg')
     image = image.tobytes('raw', 'RGBX', 0, -1)
     texture_id = glGenTextures(1)
@@ -4781,7 +4783,7 @@ def rocky_robot_degrees_180_frame():
 def rocky_robot_degrees_270_frame():
 
     materials = {}
-    
+
     image = PIL.Image.open('images/rocky_robot_head_passive_01.png')
     image = image.tobytes('raw', 'RGBX', 0, -1)
     texture_id = glGenTextures(1)
@@ -4790,7 +4792,7 @@ def rocky_robot_degrees_270_frame():
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR)
     glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, 500, 500, 0, GL_RGBA, GL_UNSIGNED_BYTE, image)
     materials['Material_001'] = texture_id
-    
+
     image = PIL.Image.open('images/rocky_robot_chest.jpg')
     image = image.tobytes('raw', 'RGBX', 0, -1)
     texture_id = glGenTextures(1)

@@ -15,7 +15,7 @@ from features import Features
 from constants import *
 
 class SaltwashAR:
- 
+
     # constants
     INVERSE_MATRIX = np.array([[ 1.0, 1.0, 1.0, 1.0],
                                [-1.0,-1.0,-1.0,-1.0],
@@ -81,30 +81,30 @@ class SaltwashAR:
 
         # handle markers
         self._handle_markers(image.copy())
-       
+
         # handle features
         self.features.handle(self.rocky_robot, self.sporty_robot, image.copy())
 
         glutSwapBuffers()
 
     def _handle_background(self, image):
-        
+
         # let features update background image
         image = self.features.update_background_image(image)
 
         # convert image to OpenGL texture format
         bg_image = cv2.flip(image, 0)
-        bg_image = Image.fromarray(bg_image)     
+        bg_image = Image.fromarray(bg_image)
         ix = bg_image.size[0]
         iy = bg_image.size[1]
         bg_image = bg_image.tobytes('raw', 'BGRX', 0, -1)
- 
+
         # create background texture
         glBindTexture(GL_TEXTURE_2D, self.texture_background)
         glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST)
         glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST)
         glTexImage2D(GL_TEXTURE_2D, 0, 3, ix, iy, 0, GL_RGBA, GL_UNSIGNED_BYTE, bg_image)
-        
+
         # draw background
         glBindTexture(GL_TEXTURE_2D, self.texture_background)
         glPushMatrix()
@@ -130,14 +130,14 @@ class SaltwashAR:
         # manage markers cache
         if markers:
             self.markers_cache = markers
-        elif self.markers_cache: 
+        elif self.markers_cache:
             markers = self.markers_cache
             self.markers_cache = None
         else:
             return
 
         for marker in markers:
-            
+
             rvecs, tvecs, marker_rotation, marker_name = marker
 
             # build view matrix
@@ -175,7 +175,7 @@ class SaltwashAR:
         glutIdleFunc(self._draw_scene)
         self._init_gl()
         glutMainLoop()
- 
+
 # run an instance of SaltwashAR
 saltwashAR = SaltwashAR()
 saltwashAR.main()

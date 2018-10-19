@@ -7,7 +7,7 @@ from markerfunctions import *
 from markerdatabase import *
 
 class Markers:
-    
+
     QUADRILATERAL_POINTS = 4
     BLACK_THRESHOLD = 100
     WHITE_THRESHOLD = 155
@@ -42,17 +42,17 @@ class Markers:
                 topdown_quad = get_topdown_quad(gray, approx.reshape(4, 2))
 
                 # Stage 5: Border check
-                if topdown_quad[(topdown_quad.shape[0]/100.0)*5, 
-                                (topdown_quad.shape[1]/100.0)*5] > self.BLACK_THRESHOLD: continue
+                if topdown_quad[int((topdown_quad.shape[0]/100.0)*5),
+                                int((topdown_quad.shape[1]/100.0)*5)] > self.BLACK_THRESHOLD: continue
 
                 # Stage 6: Get marker pattern
                 marker_pattern = None
-                
+
                 try:
                     marker_pattern = get_marker_pattern(topdown_quad, self.BLACK_THRESHOLD, self.WHITE_THRESHOLD)
                 except:
                     continue
-                
+
                 if not marker_pattern: continue
 
                 # Stage 7: Match marker pattern
@@ -68,4 +68,3 @@ class Markers:
                     markers.append([rvecs, tvecs, marker_rotation, marker_name])
 
         return markers
-

@@ -13,15 +13,15 @@ class ConfigProvider:
     def animation(self):
         return self.config.getboolean('Enhancements', 'Animation')
 
-    @property 
+    @property
     def acting(self):
         return self.config.getboolean('Features', 'Acting')
 
-    @property 
+    @property
     def audio_classifier(self):
         return self.config.getboolean('Features', 'AudioClassifier')
 
-    @property 
+    @property
     def browser(self):
         return self.config.getboolean('Features', 'Browser')
 
@@ -33,46 +33,46 @@ class ConfigProvider:
     def fruit_machine(self):
         return self.config.getboolean('Features', 'FruitMachine')
 
-    @property 
+    @property
     def hand_gesture(self):
         return self.config.getboolean('Features', 'HandGesture')
 
-    @property 
+    @property
     def happy_colour(self):
         return self.config.getboolean('Features', 'HappyColour')
 
-    @property 
+    @property
     def iris_classifier(self):
         return self.config.getboolean('Features', 'IrisClassifier')
 
-    @property 
+    @property
     def mixing_desk(self):
         return self.config.getboolean('Features', 'MixingDesk')
 
-    @property 
+    @property
     def optical_character_recognition(self):
         return self.config.getboolean('Features', 'OpticalCharacterRecognition')
 
-    @property 
+    @property
     def phrase_translation(self):
         return self.config.getboolean('Features', 'PhraseTranslation')
 
-    @property 
+    @property
     def play_your_cards_right(self):
         return self.config.getboolean('Features', 'PlayYourCardsRight')
 
-    @property 
+    @property
     def shapes(self):
         return self.config.getboolean('Features', 'Shapes')
 
-    @property 
+    @property
     def slideshow(self):
         return self.config.getboolean('Features', 'Slideshow')
 
-    @property 
+    @property
     def television(self):
         return self.config.getboolean('Features', 'Television')
 
-    @property 
+    @property
     def weather(self):
         return self.config.getboolean('Features', 'Weather')
